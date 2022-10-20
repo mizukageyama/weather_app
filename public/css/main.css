@@ -1,0 +1,35 @@
+body {
+    background-color: beige;
+}
+
+.wrapper {
+    /* width: 700px; */
+    background-color: #fff;
+    padding: 10;
+}
+
+main {
+    height: 100%;
+}
+
+header,
+footer {
+    background-color: ghostwhite;
+    width: 100%;
+    padding: 20px;
+}
+
+/* .location-container {
+    width: 25%;
+    height: 100%;
+    padding: 15px;
+    /* background-color: pink; */
+/* }
+
+.display-container {
+    height: 100%;
+    padding: 15px;
+    width: 75%;
+    background-color: #333333;
+
+} */
