@@ -1,35 +1,75 @@
 body {
-    background-color: beige;
+    background-color: #fff;
 }
 
-.wrapper {
-    /* width: 700px; */
-    background-color: #fff;
+div.wrapper {
     padding: 10;
+    height: 100vh;
 }
 
 main {
-    height: 100%;
+    height: calc(100% - 120px);
 }
+
+
+ul.pagination {
+    justify-content: flex-end;
+    --bs-pagination-color: #424547;
+    --bs-pagination-border-color: #c1c3c4;
+    margin-bottom: 0px;
+}
+
+.btn-outline-success {
+    --bs-btn-color: #424547;
+    --bs-btn-border-color: #424547;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #424547;
+}
+
+.navbar {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container-fluid {
+    --bs-gutter-x: 0;
+}
+
+.left-content {
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #545454;
+}
+
+.row {
+    --bs-gutter-x: 0;
+    width: 100%;
+}
+
+p {
+    margin-bottom: 0;
+}
+
 
 header,
 footer {
-    background-color: ghostwhite;
+    background-color: #c3caca;
     width: 100%;
-    padding: 20px;
 }
 
-/* .location-container {
-    width: 25%;
-    height: 100%;
-    padding: 15px;
-    /* background-color: pink; */
-/* }
-
-.display-container {
-    height: 100%;
-    padding: 15px;
-    width: 75%;
-    background-color: #333333;
-
-} */
+footer {
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

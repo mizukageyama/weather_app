@@ -1,7 +1,7 @@
 <header>
-    <nav class="navbar bg-light">
+    <nav class="navbar">
         <div class="container-fluid">
-            <a class=" navbar-brand">Weather App</a>
+            <a class=" navbar-brand" href="?page=<%= current_page %>&loc=<%= queryLoc %>">Weather App</a>
             <form class="d-flex" role="search" action="/" method="GET">
                 <input class="form-control me-2" type="text" name="loc" placeholder="Enter Location"
                     aria-label="Search">
