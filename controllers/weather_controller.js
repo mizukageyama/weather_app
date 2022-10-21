@@ -6,6 +6,8 @@ module.exports = {
             location: "Not found",
             temperature: "0",
             description: "---",
+            wind: "--",
+            humidity: "--",
             image: "https://cdn-icons-png.flaticon.com/512/2965/2965314.png"
         };
 
@@ -23,6 +25,8 @@ module.exports = {
                     const icon = weatherData.weather[0].icon;
                     weatherInfo.location = location;
                     weatherInfo.temperature = Math.floor(weatherData.main.temp);
+                    weatherInfo.humidity = weatherData.main.humidity;
+                    weatherInfo.wind = Math.floor((weatherData.wind.speed * 3.6) * 100) / 100;
                     weatherInfo.description = weatherData.weather[0].description;
                     weatherInfo.image = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
