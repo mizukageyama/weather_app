@@ -8,7 +8,7 @@ div.wrapper {
 }
 
 main {
-    height: calc(100% - 120px);
+    height: calc(100% - 56px);
 }
 
 
@@ -51,6 +51,7 @@ ul.pagination {
     background-color: #545454;
 }
 
+
 .row {
     --bs-gutter-x: 0;
     width: 100%;
@@ -62,14 +63,15 @@ p {
 
 
 header,
-footer {
+.footer {
     background-color: #c3caca;
     width: 100%;
 }
 
-footer {
+.footer {
+    height: 64px;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    bottom: 0;
+    text-align: center;
 }
