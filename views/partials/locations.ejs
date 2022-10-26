@@ -1,41 +1,44 @@
 <div class="left-content">
+
+    <% if (locations.length > 0){ %>
     <div class="list-group list-group-light">
-        <% if (locations.length> 0){ %>
-            <% for (let locItem of locations) { %>
-                <a href="?loc=<%= locItem.name %>&page=<%= current_page %>" id="location-link"
-                    class="list-group-item list-group-item-action px-3 border-0">
-                    <%= locItem.name %>
-                </a>
-                <%} %>
+        <%  for (let locItem of locations) { %>
+        <a href="?loc=<%= locItem.name %>&page=<%= current_page %>" id="location-link"
+            class="list-group-item list-group-item-action px-3 border-0">
+            <%= locItem.name %>
+        </a>
+        <%} %>
     </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <% if(has_prev){ %>
-                <li class="page-item">
-                    <a class="page-link" href="?page=<%= current_page-1 %>&loc=<%= queryLoc %>" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <% } let pagesLeft=total_pages-current_page; for(let page=current_page; pagesLeft> 5?
-                    page<(parseInt(current_page)+3): page < total_pages; page++){ %>
-
-                        <li class="page-item">
-                            <a class="page-link" id="page-link-1" href="?page=<%= page %>&loc=<%= queryLoc %>">
-                                <%= page %>
-                            </a>
-                        </li>
-                        <% }%>
-                            <% if(has_next){ %>
-                                <li class="page-item">
-                                    <a class="page-link" href="?page=<%= current_page+1 %>&loc=<%= queryLoc %>"
-                                        aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                                <% } %>
+            <li class="page-item">
+                <a class="page-link" href="?page=<%= current_page-1 %>&loc=<%= queryLoc %>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <% } 
+            let pagesLeft = total_pages - current_page;
+            let pagesToAdd = total_pages;
+            if(pagesLeft > 5){
+                pagesToAdd = parseInt(current_page)+3;
+            } %>
+            <% for(let page=current_page; page < pagesToAdd; page++){ %>
+            <li class="page-item">
+                <a class="page-link" id="page-link-1" href="?page=<%= page %>&loc=<%= queryLoc %>">
+                    <%= page %>
+                </a>
+            </li>
+            <% } if(has_next){ %>
+            <li class="page-item">
+                <a class="page-link" href="?page=<%= current_page+1 %>&loc=<%= queryLoc %>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <% } %>
         </ul>
     </nav>
     <% } else { %>
-        <p>Has no data</p>
-        <% } %>
+    <p>Unable to fetch locations</p>
+    <% } %>
 </div>

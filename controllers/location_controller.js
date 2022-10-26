@@ -6,13 +6,11 @@ module.exports = {
         let offset = (page - 1) * limit;
 
         return new Promise(async function (resolve, reject) {
-            try {
-                const locationResponse = await fetch(`https://countriesnow.space/api/v0.1/countries/capital`);
+            await fetch(`https://countriesnow.space/api/v0.1/countries/capital`).then(async (result) => {
+                const locationJson = await result.json();
 
-                if (locationResponse.status == 200) {
-                    const locationJson = await locationResponse.json();
+                if (result.status == 200) {
                     const locationData = locationJson.data;
-
                     let totalLocations = locationData.length;
                     let perPageLocation = locationData.slice(offset, offset + 10);
                     let totalPages = Math.ceil(totalLocations / limit);
@@ -25,6 +23,7 @@ module.exports = {
                         has_next: page < totalPages,
                         locations: perPageLocation
                     }
+
                     resolve({
                         success: 1,
                         data: paginatedLocation
@@ -35,13 +34,13 @@ module.exports = {
                         message: locationJson.message,
                     });
                 }
-            } catch (e) {
-                console.log(e);
+            }).catch((err) => {
+                console.log(err);
                 resolve({
                     success: 0,
                     message: 'Something went wrong',
                 });
-            }
+            });
         });
     }
 };

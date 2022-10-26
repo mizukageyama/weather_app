@@ -1,6 +1,6 @@
 <div class="right-content">
     <div class="col-md-8 col-lg-6 col-xl-4">
-        <div class=" card justify-content-center" style="color: #4B515D; border-radius: 35px;">
+        <div class=" card justify-content-center" style="border-radius: 35px;">
             <div class="card-body p-4">
 
                 <div class="d-flex">
@@ -17,9 +17,11 @@
                         <%= weatherInfo.description %>
                     </span>
                 </div>
+                <i class="bi bi-wind"></i>
 
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1" style="font-size: 1rem;">
+<<<<<<< Updated upstream
                         <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1">
                                 40 km/h
                             </span></div>
@@ -28,10 +30,22 @@
                         </div>
                         <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1">
                                 0.2h </span>
+=======
+                        <div>
+                            <img src="https://img.icons8.com/color/48/000000/wind.png" width="20px" /> <span
+                                class="ms-1">
+                                Wind Speed: <%= weatherInfo.wind %> km/h
+                            </span>
+                        </div>
+                        <div><img
+                                src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-humidity-weather-justicon-flat-justicon-1.png"
+                                width="20px" /> <span class="ms-1">
+                                Humidity: <%= weatherInfo.humidity %>% </span>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                     <div>
-                        <img src="<%= weatherInfo.image %>" width="100px">
+                        <img src="<%= weatherInfo.image %>" width="90px">
                     </div>
                 </div>
             </div>
