@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
     let page = parseInt(req.query.page) || 1;
 
     const locationList = await fetchLocations(page);
-    let data = locationList.data;
+    let data = locationList.data || { "locations": [], "current_page": 0 };
     data.queryLoc = location;
     data.title = 'Weather App Home';
 
@@ -36,6 +36,6 @@ app.get('/', async (req, res) => {
 });
 
 //Listen to port 3000
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log(`Weather app listening on http://localhost:${process.env.PORT}`);
 });
