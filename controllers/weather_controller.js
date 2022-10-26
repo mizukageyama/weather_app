@@ -18,29 +18,6 @@ module.exports = {
                 .then(async (weatherResponse) => {
                     const weatherData = await weatherResponse.json();
 
-<<<<<<< Updated upstream
-                    const icon = weatherData.weather[0].icon;
-                    weatherInfo.location = location;
-                    weatherInfo.temperature = Math.floor(weatherData.main.temp);
-                    weatherInfo.description = weatherData.weather[0].description;
-                    weatherInfo.image = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-                    resolve(weatherInfo);
-
-                } else if (weatherResponse.status == 404) {
-                    weatherInfo.location = `${location} not found`;
-                    resolve(weatherInfo);
-
-                } else {
-                    weatherInfo.location = 'Invalid API key';
-                    resolve(weatherInfo);
-                }
-            } catch (e) {
-                console.log(e);
-                weatherInfo.location = 'Something went wrong';
-                resolve(weatherInfo);
-            }
-=======
                     if (weatherResponse.status == 200) {
                         const icon = weatherData.weather[0].icon;
                         weatherInfo.location = location;
@@ -65,7 +42,6 @@ module.exports = {
                     weatherInfo.location = 'Something went wrong';
                     s(weatherInfo);
                 });
->>>>>>> Stashed changes
         });
     }
 };
