@@ -20,14 +20,6 @@ module.exports = {
                 .then(async (weatherResponse) => {
                     const weatherData = await weatherResponse.json();
 
-                    const icon = weatherData.weather[0].icon;
-                    weatherInfo.location = location;
-                    weatherInfo.temperature = Math.floor(weatherData.main.temp);
-                    weatherInfo.humidity = weatherData.main.humidity;
-                    weatherInfo.wind = Math.floor((weatherData.wind.speed * 3.6) * 100) / 100;
-                    weatherInfo.description = weatherData.weather[0].description;
-                    weatherInfo.image = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
                     if (weatherResponse.status == 200) {
                         const icon = weatherData.weather[0].icon;
                         weatherInfo.location = location;
@@ -50,7 +42,7 @@ module.exports = {
                 }).catch((err) => {
                     console.log(err);
                     weatherInfo.location = 'Something went wrong';
-                    s(weatherInfo);
+                    (weatherInfo);
                 });
         });
     }
